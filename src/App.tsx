@@ -1,8 +1,12 @@
 import "./styles/main.css";
+import { useState } from "react";
 import Logo from "./components/Logo";
 import Card from "./components/Card";
 import Banner from "./components/Banner";
+import IconSearch from "./assets/ic-search.svg";
 import PublishAds from "./components/PublishAds";
+import ModalPublishAds from "./components/ModalPublishAds";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 function App() {
   const games = [
@@ -43,9 +47,19 @@ function App() {
       ads: "4 anúncios",
     },
   ];
+  const [openModal, setOpenModal] = useState(false);
+
+  function open() {
+    setOpenModal(true);
+    window.scrollTo(0, 0);
+  }
+
+  function close() {
+    setOpenModal(false);
+  }
 
   return (
-    <div className="max-w-[1344px] mx-auto flex flex-col items-center">
+    <div className="max-w-[1344px] mx-auto flex flex-col items-center relative">
       <Logo />
       <Banner />
       <div className="grid grid-cols-6 gap-6 my-16">
@@ -53,7 +67,24 @@ function App() {
           <Card image={image} title={title} ads={ads} />
         ))}
       </div>
-      <PublishAds />
+      <PublishAds>
+        <button
+          onClick={open}
+          className="flex items-center justify-between text-white bg-violet-500 
+            py-[14.5px] pl-[19px] pr-[16px] rounded-md hover:bg-violet-700"
+        >
+          <img className="pr-2" src={IconSearch} alt="Icon Search" />
+          Publicar anúncio
+        </button>
+      </PublishAds>
+      {openModal ? (
+        <ModalPublishAds>
+          <XMarkIcon
+            onClick={close}
+            className="w-7 text-white cursor-pointer"
+          />
+        </ModalPublishAds>
+      ) : null}
     </div>
   );
 }

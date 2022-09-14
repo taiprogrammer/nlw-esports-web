@@ -1,5 +1,9 @@
-import IconSearch from "../assets/ic-search.svg";
-function PublishAds() {
+import { ReactNode } from "react";
+interface PublishAdsType {
+  children?: ReactNode;
+}
+
+function PublishAds(props: PublishAdsType) {
   return (
     <div>
       <div className="pt-1 bg-nlw-gradient rounded-lg self-stretch">
@@ -15,12 +19,7 @@ function PublishAds() {
               Publique um anúncio para encontrar novos players!
             </p>
           </div>
-          <div>
-            <button className="flex items-center justify-between text-white bg-violet-500 py-[14.5px] pl-[19px] pr-[16px] rounded-md hover:opacity-90">
-              <img className="pr-2" src={IconSearch} alt="" />
-              Publicar anúncio
-            </button>
-          </div>
+          <div>{props.children}</div>
         </div>
       </div>
     </div>

@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.tsx", "./index.html"],
   theme: {
+    fontFamily: {
+      sans: ["Inter", "sans-serif"],
+    },
     extend: {
       backgroundImage: {
         galaxy: 'url("/background-galaxy.png")',
@@ -9,6 +12,9 @@ module.exports = {
           "linear-gradient(89.86deg, #9572FC 23.08%, #43E7AD 80.94%, #E1D55D 95.57%)",
         "card-game-gradient":
           "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 67.08%);",
+      },
+      backgroundColor: {
+        "background-overlay": "rgba(0, 0, 0, 0.6);",
       },
     },
   },
