@@ -49,7 +49,7 @@ function App() {
       <Logo />
       <Banner />
       <div className="grid grid-cols-6 gap-6 my-16">
-        {games.map(({ image, title, ads}) => (
+        {games.map(({ image, title, ads }) => (
           <Card image={image} title={title} ads={ads} />
         ))}
       </div>
